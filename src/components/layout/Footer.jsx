@@ -10,28 +10,37 @@ export function Footer() {
             href={site.github}
             target="_blank"
             rel="noreferrer"
-            className="grid h-10 w-10 place-items-center rounded-xl bg-white/5 border border-white/10 text-text hover:bg-white/10 transition"
+            className="group relative grid h-10 w-10 place-items-center rounded-xl bg-white/5 border border-white/10 text-text hover:bg-white/10 transition"
             aria-label="GitHub"
             data-cursor="active"
           >
+            <span className="pointer-events-none absolute -top-9 right-0 whitespace-nowrap rounded-full border border-white/10 bg-black/70 px-2 py-1 text-[11px] text-muted opacity-0 backdrop-blur transition group-hover:opacity-100">
+              {site.github.replace('https://', '').replace('www.', '')}
+            </span>
             <Code2 className="h-4 w-4" />
           </a>
           <a
             href={site.linkedin}
             target="_blank"
             rel="noreferrer"
-            className="grid h-10 w-10 place-items-center rounded-xl bg-white/5 border border-white/10 text-text hover:bg-white/10 transition"
+            className="group relative grid h-10 w-10 place-items-center rounded-xl bg-white/5 border border-white/10 text-text hover:bg-white/10 transition"
             aria-label="LinkedIn"
             data-cursor="active"
           >
+            <span className="pointer-events-none absolute -top-9 right-0 whitespace-nowrap rounded-full border border-white/10 bg-black/70 px-2 py-1 text-[11px] text-muted opacity-0 backdrop-blur transition group-hover:opacity-100">
+              {site.linkedin.replace('https://', '').replace('www.', '')}
+            </span>
             <Link className="h-4 w-4" />
           </a>
           <a
             href={`mailto:${site.email}`}
-            className="grid h-10 w-10 place-items-center rounded-xl bg-white/5 border border-white/10 text-text hover:bg-white/10 transition"
+            className="group relative grid h-10 w-10 place-items-center rounded-xl bg-white/5 border border-white/10 text-text hover:bg-white/10 transition"
             aria-label="Email"
             data-cursor="active"
           >
+            <span className="pointer-events-none absolute -top-9 right-0 whitespace-nowrap rounded-full border border-white/10 bg-black/70 px-2 py-1 text-[11px] text-muted opacity-0 backdrop-blur transition group-hover:opacity-100">
+              {site.email}
+            </span>
             <Mail className="h-4 w-4" />
           </a>
         </div>
