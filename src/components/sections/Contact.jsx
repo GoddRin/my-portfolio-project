@@ -67,11 +67,31 @@ export function Contact() {
       setSent(true)
       reset()
     } catch (e) {
+      // Surface the actual EmailJS error so we can debug production issues.
+      // (EmailJS errors can be objects/strings depending on transport failure.)
+      // eslint-disable-next-line no-console
+      console.error('EmailJS send error:', e)
+
+      const errMsg =
+        typeof e === 'string'
+          ? e
+          : e?.text
+            ? String(e.text)
+            : e?.message
+              ? String(e.message)
+              : (() => {
+                  try {
+                    return JSON.stringify(e)
+                  } catch {
+                    return String(e)
+                  }
+                })()
+
       setToast({
         open: true,
         tone: 'error',
         title: 'Message failed to send',
-        message: e?.message ?? 'Please try again later.',
+        message: errMsg || 'Please try again later.',
       })
     } finally {
       setSending(false)
