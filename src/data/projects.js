@@ -21,7 +21,7 @@ export const projects = [
     stack: ['MongoDB', 'Express', 'React', 'Node.js', 'JWT'],
     image: assetManagementImage,
     liveUrl: 'https://it-asset-management-system-gb9j.vercel.app',
-    githubUrl: 'https://github.com/yourhandle/asset-management', // TODO: Replace
+    githubUrl: 'https://github.com/GodRin7/it-asset-management-system.git',
     screenshots: [
       assetManagementImage,
       'https://picsum.photos/seed/asset-system-2/1400/900',
@@ -46,7 +46,7 @@ export const projects = [
     stack: ['React', 'Node.js', 'MongoDB', 'WebSockets'],
     image: smartFarmImage,
     liveUrl: 'https://smart-farm-assistant.vercel.app',
-    githubUrl: 'https://github.com/yourhandle/smart-farm', // TODO: Replace
+    githubUrl: 'https://github.com/GodRin7/Smart-farm-assistant.git',
     screenshots: [
       smartFarmImage,
       'https://picsum.photos/seed/smart-farm-system-2/1400/900',
@@ -70,8 +70,8 @@ export const projects = [
     ],
     stack: ['React', 'Vite', 'Framer Motion', 'Tailwind'],
     image: portfolioProfileImage,
-    liveUrl: 'https://example.com', // TODO: Replace
-    githubUrl: 'https://github.com/yourhandle/portfolio-profile', // TODO: Replace
+    liveUrl: 'https://my-portfolio-project-dusky.vercel.app',
+    githubUrl: 'https://github.com/GoddRin/my-portfolio-project.git',
     screenshots: [
       portfolioProfileImage,
       'https://picsum.photos/seed/portfolio-system-2/1400/900',
