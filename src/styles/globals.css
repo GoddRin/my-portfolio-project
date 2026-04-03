@@ -62,17 +62,22 @@ html:not(.dark) body::before {
   outline-offset: 3px;
 }
 
-/* Hide cursor for custom cursor on desktop; opt-out for touch */
+/*
+ * Hide the system cursor only while the custom cursor is active.
+ * (See CustomCursor.jsx toggling html.custom-cursor-active.)
+ * This avoids an invisible cursor when the custom cursor is disabled
+ * (e.g. prefers-reduced-motion, touch, or failed mount).
+ */
 @media (hover: hover) and (pointer: fine) {
-  html {
+  html.custom-cursor-active {
     cursor: none;
   }
-  a,
-  button,
-  [role='button'],
-  input,
-  textarea,
-  select {
+  html.custom-cursor-active a,
+  html.custom-cursor-active button,
+  html.custom-cursor-active [role='button'],
+  html.custom-cursor-active input,
+  html.custom-cursor-active textarea,
+  html.custom-cursor-active select {
     cursor: none;
   }
 }

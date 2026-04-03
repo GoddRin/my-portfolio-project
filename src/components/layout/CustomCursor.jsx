@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring } from 'framer-motion'
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useLayoutEffect, useMemo, useState } from 'react'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion.js'
 
 function isFinePointer() {
@@ -24,6 +24,16 @@ export function CustomCursor() {
   }, [])
 
   const enabled = fine && !reduced
+
+  useLayoutEffect(() => {
+    const root = document.documentElement
+    if (enabled) {
+      root.classList.add('custom-cursor-active')
+    } else {
+      root.classList.remove('custom-cursor-active')
+    }
+    return () => root.classList.remove('custom-cursor-active')
+  }, [enabled])
 
   useEffect(() => {
     if (!enabled) return
@@ -61,12 +71,12 @@ export function CustomCursor() {
     <>
       <motion.div
         aria-hidden="true"
-        className="fixed left-0 top-0 z-[999] h-[6px] w-[6px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/80 mix-blend-difference pointer-events-none"
+        className="fixed left-0 top-0 z-[999] h-[6px] w-[6px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/90 shadow-[0_0_0_1px_rgba(0,0,0,0.35),0_0_12px_rgba(99,102,241,0.45)] pointer-events-none"
         style={{ x, y }}
       />
       <motion.div
         aria-hidden="true"
-        className="fixed left-0 top-0 z-[998] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/30 mix-blend-difference pointer-events-none"
+        className="fixed left-0 top-0 z-[998] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/40 bg-white/5 shadow-[0_0_0_1px_rgba(0,0,0,0.2)] pointer-events-none"
         style={{
           x: ringX,
           y: ringY,
