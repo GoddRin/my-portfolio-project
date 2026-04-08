@@ -696,9 +696,3 @@
 .animate-marquee-reverse-native {
   animation: run-marquee-reverse 30s linear infinite;
 }
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-marquee-native, .animate-marquee-reverse-native {
-    animation-play-state: paused;
-  }
-}
