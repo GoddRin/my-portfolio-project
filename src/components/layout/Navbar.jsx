@@ -11,6 +11,7 @@ const links = [
   { id: 'home', label: 'Home', to: '/' },
   { id: 'about', label: 'About', to: '/about' },
   { id: 'skills', label: 'Skills', to: '/skills' },
+  { id: 'systems', label: 'Process', to: '/systems' },
   { id: 'certifications', label: 'Certifications', to: '/certifications' },
   { id: 'projects', label: 'Projects', to: '/work' },
   { id: 'contact', label: 'Contact', to: '/contact' },
@@ -21,6 +22,7 @@ function isHomeSectionRoute(pathname) {
     pathname === '/' ||
     pathname === '/about' ||
     pathname === '/skills' ||
+    pathname === '/systems' ||
     pathname === '/certifications' ||
     pathname === '/work' ||
     pathname === '/timeline' ||
@@ -35,7 +37,7 @@ export function Navbar() {
   const { theme, toggle } = useTheme()
   const navigate = useNavigate()
   const location = useLocation()
-  const activeObserved = useActiveSection(['home', 'about', 'skills', 'certifications', 'projects', 'timeline', 'contact'])
+  const activeObserved = useActiveSection(['home', 'about', 'skills', 'systems', 'certifications', 'projects', 'timeline', 'contact'])
 
   const activeId = useMemo(() => {
     if (isHomeSectionRoute(location.pathname)) {
