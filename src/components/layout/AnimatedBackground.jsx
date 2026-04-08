@@ -31,8 +31,6 @@ function useBackgroundPrefs() {
 export function AnimatedBackground() {
   const { reduced, mobile, mounted } = useBackgroundPrefs()
 
-  if (mobile) return null; // Nuke TSParticles completely on mobile to eliminate stutters
-
   const particleCount = reduced ? 20 : 60
   const orbClass = reduced ? 'bg-orbs reduced' : 'bg-orbs'
 
@@ -74,6 +72,8 @@ export function AnimatedBackground() {
     }),
     [particleCount, reduced, mobile],
   )
+
+  if (mobile) return null;
 
   return (
     <div
