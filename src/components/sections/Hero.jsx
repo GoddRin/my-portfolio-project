@@ -217,7 +217,7 @@ export function Hero() {
         </motion.div>
 
         <motion.div
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 text-muted"
+          className="mt-12 md:absolute md:bottom-8 md:left-1/2 md:-translate-x-1/2 text-muted mx-auto pb-4"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.05, duration: 0.5 }}
