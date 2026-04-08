@@ -101,7 +101,7 @@ export function Skills() {
         <div className="mt-14 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
           <div className="py-4">
             <div className="flex gap-6 whitespace-nowrap [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-              <div className="flex gap-6 animate-marquee-native will-change-transform">
+              <div className="flex w-max gap-6 animate-marquee-native will-change-transform">
                 {marqueeTech.concat(marqueeTech).map((t, i) => (
                   <span
                     key={`${t}-${i}`}
@@ -113,7 +113,7 @@ export function Skills() {
               </div>
             </div>
             <div className="mt-3 flex gap-6 whitespace-nowrap [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-              <div className="flex gap-6 animate-marquee-reverse-native will-change-transform">
+              <div className="flex w-max gap-6 animate-marquee-reverse-native will-change-transform">
                 {marqueeTech.concat(marqueeTech).map((t, i) => (
                   <span
                     key={`${t}-b-${i}`}

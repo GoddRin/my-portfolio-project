@@ -17,7 +17,7 @@ export function About() {
     <section id="about" className="relative z-10 mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
       <div className="grid gap-10 md:grid-cols-12 md:items-start">
         <RevealWrapper className="md:col-span-5">
-          <div className="relative mx-auto w-fit max-w-[380px]">
+          <div className="relative mx-auto w-full max-w-[380px]">
             <div className="profile-photo-blob" />
             <div 
               className="profile-photo-frame cursor-pointer"
@@ -59,15 +59,13 @@ export function About() {
                   </div>
                 )}
               </div>
-            </div>
-
-            <div className="absolute left-3 top-3 glass rounded-full px-3 py-1 text-xs text-text z-30">
-              📍 Tuguegarao, PH
-            </div>
-
-            <div className="absolute bottom-3 right-3 glass rounded-full px-3 py-1 text-xs text-text z-30">
-              <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              {isSleeping ? 'Dreaming' : 'Open to Work'}
+              <div className="absolute left-3 top-3 glass rounded-full px-3 py-1 text-xs text-text z-30">
+                📍 Tuguegarao, PH
+              </div>
+              <div className="absolute bottom-3 right-3 glass rounded-full px-3 py-1 text-xs text-text z-30">
+                <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
+                {isSleeping ? 'Dreaming' : 'Open to Work'}
+              </div>
             </div>
           </div>
 
