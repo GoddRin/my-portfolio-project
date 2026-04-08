@@ -4,7 +4,7 @@ export function Badge({ className, children, dot, ...props }) {
   return (
     <span
       className={clsx(
-        'inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium tracking-wide',
+        'inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium tracking-wide whitespace-nowrap',
         'bg-white/6 border border-white/10 text-text',
         className,
       )}

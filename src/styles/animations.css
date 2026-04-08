@@ -677,3 +677,28 @@
     grid-column: span 1;
   }
 }
+
+/* Marquee Animations (Native to ensure execution) */
+@keyframes run-marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes run-marquee-reverse {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+.animate-marquee-native {
+  animation: run-marquee 30s linear infinite;
+}
+
+.animate-marquee-reverse-native {
+  animation: run-marquee-reverse 30s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee-native, .animate-marquee-reverse-native {
+    animation-play-state: paused;
+  }
+}

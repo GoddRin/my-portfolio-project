@@ -17,7 +17,7 @@ export function About() {
     <section id="about" className="relative z-10 mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
       <div className="grid gap-10 md:grid-cols-12 md:items-start">
         <RevealWrapper className="md:col-span-5">
-          <div className="relative mx-auto w-full max-w-[380px]">
+          <div className="relative mx-auto w-fit max-w-[380px]">
             <div className="profile-photo-blob" />
             <div 
               className="profile-photo-frame cursor-pointer"
