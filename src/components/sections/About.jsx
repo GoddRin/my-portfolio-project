@@ -49,13 +49,14 @@ export function About() {
           </div>
 
           {/* ── CTA Buttons (replaces stat cards) ── */}
-          <div className="mt-6 grid gap-3 grid-cols-2">
+          <div className="mt-6 flex gap-3 max-w-[380px] mx-auto">
             <Button
               as="a"
               href="https://mail.google.com/mail/?view=cm&to=salva.harrold@gmail.com&su=Hello%20Marc%20–%20Let's%20Connect"
               target="_blank"
               rel="noreferrer"
               variant="primary"
+              className="flex-1 w-full text-center"
               id="about-send-email"
             >
               <Mail className="h-4 w-4" /> Send Email
@@ -65,6 +66,7 @@ export function About() {
               href="/Marc_Harrold_Salva_Resume.pdf"
               download="Marc_Harrold_Salva_Resume.pdf"
               variant="ghost"
+              className="flex-1 w-full text-center"
               id="about-download-cv"
             >
               <Download className="h-4 w-4" /> Download CV

@@ -32,8 +32,11 @@ export function Button({
     transition: { type: 'spring', stiffness: 350, damping: 24 },
   }
 
+  /* Let the wrapper stretch when flex-1 / w-full is passed */
+  const needsStretch = className?.includes('flex-1') || className?.includes('w-full')
+
   return (
-    <motion.div className="inline-flex" {...motionProps}>
+    <motion.div className={needsStretch ? 'flex flex-1' : 'inline-flex'} {...motionProps}>
       <Comp className={clsx(base, sizes[size], variants[variant], className)} {...props}>
         {children}
       </Comp>
