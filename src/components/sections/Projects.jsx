@@ -22,7 +22,7 @@ function ProjectCard({ p, onOpen }) {
             src={p.image}
             alt={`${p.name} cover`}
             loading="lazy"
-            className="h-48 w-full object-cover transition duration-500 group-hover:scale-[1.05]"
+            className="h-48 w-full object-cover md:transition md:duration-500 md:group-hover:scale-[1.05]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
           <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-muted">
@@ -102,7 +102,7 @@ export function Projects() {
                   src={featured.image}
                   alt={`${featured.name} cover`}
                   loading="lazy"
-                  className="h-full min-h-64 w-full object-cover transition duration-500 group-hover:scale-[1.04]"
+                  className="h-full min-h-64 w-full object-cover md:transition md:duration-500 md:group-hover:scale-[1.04]"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
               </div>

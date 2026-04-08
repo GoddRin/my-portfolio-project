@@ -31,14 +31,14 @@ function useBackgroundPrefs() {
 export function AnimatedBackground() {
   const { reduced, mobile, mounted } = useBackgroundPrefs()
 
-  const particleCount = reduced ? 20 : mobile ? 30 : 60
+  const particleCount = reduced ? 20 : mobile ? 12 : 60
   const orbClass = reduced ? 'bg-orbs reduced' : 'bg-orbs'
 
   const options = useMemo(
     () => ({
       fullScreen: { enable: false },
-      detectRetina: true,
-      fpsLimit: 60,
+      detectRetina: !mobile,
+      fpsLimit: mobile ? 30 : 60,
       particles: {
         number: { value: particleCount, density: { enable: true, area: 1000 } },
         size: { value: { min: 1, max: 2 } },
@@ -46,13 +46,13 @@ export function AnimatedBackground() {
         opacity: { value: { min: 0.2, max: 0.5 } },
         move: {
           enable: !reduced,
-          speed: reduced ? 0 : 0.6,
+          speed: reduced ? 0 : mobile ? 0.3 : 0.6,
           direction: 'none',
           random: true,
           outModes: { default: 'out' },
         },
         links: {
-          enable: true,
+          enable: !mobile,
           color: '#6366f1',
           distance: 130,
           opacity: 0.15,
@@ -61,8 +61,8 @@ export function AnimatedBackground() {
       },
       interactivity: {
         events: {
-          onHover: { enable: !reduced, mode: 'repulse' },
-          onClick: { enable: !reduced, mode: 'push' },
+          onHover: { enable: !reduced && !mobile, mode: 'repulse' },
+          onClick: { enable: !reduced && !mobile, mode: 'push' },
         },
         modes: {
           repulse: { distance: 80, duration: 0.4 },
@@ -70,7 +70,7 @@ export function AnimatedBackground() {
         },
       },
     }),
-    [particleCount, reduced],
+    [particleCount, reduced, mobile],
   )
 
   return (

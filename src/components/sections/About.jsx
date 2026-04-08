@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Briefcase, Cpu, Network } from 'lucide-react'
+import { ArrowRight, Mail, Download } from 'lucide-react'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { site } from '../../data/site.js'
 import profilePhoto from '../../assets/profile.jpg'
-import { CountUp } from '../ui/CountUp.jsx'
-import { GlassCard } from '../ui/GlassCard.jsx'
 import { RevealWrapper } from '../ui/RevealWrapper.jsx'
 import { Button } from '../ui/Button.jsx'
 
@@ -21,7 +19,6 @@ export function About() {
             <div className="profile-photo-blob" />
             <div className="profile-photo-frame">
               <div className="profile-photo-inner">
-                {/* TODO: Replace with your actual photo */}
                 {!imageError ? (
                   <img
                     src={profilePhoto}
@@ -51,36 +48,27 @@ export function About() {
             </div>
           </div>
 
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            <GlassCard className="p-4" hover>
-              <div className="flex items-center gap-3">
-                <Cpu className="h-4 w-4 text-cyan-300" />
-                <div className="min-w-0">
-                  <div className="text-sm font-semibold text-text">Less than 1 year</div>
-                  <div className="text-xs text-muted">Coding Experience</div>
-                </div>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4" hover>
-              <div className="flex items-center gap-3">
-                <Briefcase className="h-4 w-4 text-indigo-300" />
-                <div className="min-w-0">
-                  <div className="text-lg font-semibold text-text">
-                    <CountUp to={3} />
-                  </div>
-                  <div className="text-xs text-muted">Projects Built</div>
-                </div>
-              </div>
-            </GlassCard>
-            <GlassCard className="p-4" hover>
-              <div className="flex items-center gap-3">
-                <Network className="h-4 w-4 text-purple-300" />
-                <div className="min-w-0">
-                  <div className="text-lg font-semibold text-text">MERN</div>
-                  <div className="text-xs text-muted">+ MikroTik</div>
-                </div>
-              </div>
-            </GlassCard>
+          {/* ── CTA Buttons (replaces stat cards) ── */}
+          <div className="mt-6 grid gap-3 grid-cols-2">
+            <Button
+              as="a"
+              href="https://mail.google.com/mail/?view=cm&to=salva.harrold@gmail.com&su=Hello%20Marc%20–%20Let's%20Connect"
+              target="_blank"
+              rel="noreferrer"
+              variant="primary"
+              id="about-send-email"
+            >
+              <Mail className="h-4 w-4" /> Send Email
+            </Button>
+            <Button
+              as="a"
+              href="/Marc_Harrold_Salva_Resume.pdf"
+              download="Marc_Harrold_Salva_Resume.pdf"
+              variant="ghost"
+              id="about-download-cv"
+            >
+              <Download className="h-4 w-4" /> Download CV
+            </Button>
           </div>
         </RevealWrapper>
 

@@ -303,3 +303,76 @@ html:not(.dark) .systems-section .systems-mono-label {
   border-color: rgba(15, 23, 42, 0.12);
 }
 
+/* ══════════════════════════════════════════════════════════ */
+/*  MOBILE PERFORMANCE OPTIMIZATIONS                          */
+/*  Targets: backdrop-filter flicker, repaint-heavy effects   */
+/* ══════════════════════════════════════════════════════════ */
+
+@media (max-width: 767px) {
+  /* ── Reduce blur intensity (biggest perf win) ────────── */
+  .glass {
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+  }
+
+  /* ── Disable grain overlay on mobile ────────────────── */
+  body::before {
+    display: none;
+  }
+
+  .bg-grain {
+    display: none;
+  }
+
+  /* ── Simplify dot grid ──────────────────────────────── */
+  .bg-dot-grid {
+    display: none;
+  }
+
+  /* ── Reduce orb blur for GPU savings ────────────────── */
+  .bg-orb {
+    filter: blur(80px);
+  }
+
+  /* ── Disable gradient-border pseudo-element on mobile ─ */
+  .gradient-border::before {
+    display: none !important;
+  }
+
+  /* ── Promote scrolling container for GPU compositing ── */
+  main {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+  }
+
+  /* ── Simplify project card image on scroll ──────────── */
+  .group img {
+    transition: none !important;
+  }
+
+  /* ── Reduce box-shadow complexity ───────────────────── */
+  .shadow-\[0_10px_40px_rgba\(0\,0\,0\,0\.25\)\] {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  }
+
+  /* ── Disable aurora sweep on mobile ─────────────────── */
+  .bg-aurora {
+    display: none;
+  }
+
+  /* ── Prevent layout recalc on scroll ────────────────── */
+  section {
+    contain: layout style;
+  }
+}
+
+/* ── Touch-specific: disable hover pseudo-effects ──────── */
+@media (hover: none) and (pointer: coarse) {
+  .gradient-border::before {
+    display: none !important;
+  }
+
+  .gradient-border:hover::before {
+    opacity: 0 !important;
+  }
+}
