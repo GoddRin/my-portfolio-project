@@ -14,6 +14,7 @@ import { Certifications } from '../components/sections/Certifications.jsx'
 import { Hero } from '../components/sections/Hero.jsx'
 import { Projects } from '../components/sections/Projects.jsx'
 import { Skills } from '../components/sections/Skills.jsx'
+import { SystemsApproach } from '../components/sections/SystemsApproach.jsx'
 import { Timeline } from '../components/sections/Timeline.jsx'
 import { RevealWrapper } from '../components/ui/RevealWrapper.jsx'
 
@@ -24,6 +25,7 @@ const sectionRoutes = new Map([
   ['/about', 'about'],
   ['/skills', 'skills'],
   ['/certifications', 'certifications'],
+  ['/systems', 'systems'],
   ['/work', 'projects'],
   ['/timeline', 'timeline'],
   ['/contact', 'contact'],
@@ -89,6 +91,15 @@ export default function HomePage() {
           transition={{ duration: 0.7, ease: EASE }}
         >
           <Skills />
+        </RevealWrapper>
+        <RevealWrapper
+          forceMotion
+          margin="-80px 0px -20% 0px"
+          amount={0.12}
+          variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0 } }}
+          transition={{ duration: 0.6, ease: EASE }}
+        >
+          <SystemsApproach />
         </RevealWrapper>
         <RevealWrapper
           forceMotion

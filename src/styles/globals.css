@@ -285,3 +285,21 @@ html:not(.dark) .bg-black\/20 {
   }
 }
 
+/* ── Systems Approach section – clean minimal theme ─── */
+html:not(.dark) .systems-section .systems-arch-node,
+html:not(.dark) .systems-section .systems-tool-chip {
+  background: rgba(15, 23, 42, 0.03);
+  border-color: rgba(15, 23, 42, 0.10);
+}
+
+html:not(.dark) .systems-section .systems-arch-node:hover,
+html:not(.dark) .systems-section .systems-tool-chip:hover {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(15, 23, 42, 0.18);
+}
+
+html:not(.dark) .systems-section .systems-mono-label {
+  background: rgba(15, 23, 42, 0.05);
+  border-color: rgba(15, 23, 42, 0.12);
+}
+
