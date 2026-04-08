@@ -4,12 +4,14 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { site } from '../../data/site.js'
 import profilePhoto from '../../assets/profile.jpg'
+import profileSleeping from '../../assets/profile-sleeping.png'
 import { RevealWrapper } from '../ui/RevealWrapper.jsx'
 import { Button } from '../ui/Button.jsx'
 
 export function About() {
   const navigate = useNavigate()
   const [imageError, setImageError] = useState(false)
+  const [isSleeping, setIsSleeping] = useState(false)
 
   return (
     <section id="about" className="relative z-10 mx-auto max-w-6xl px-4 py-20 md:px-6 md:py-28">
@@ -17,16 +19,37 @@ export function About() {
         <RevealWrapper className="md:col-span-5">
           <div className="relative mx-auto w-full max-w-[380px]">
             <div className="profile-photo-blob" />
-            <div className="profile-photo-frame">
-              <div className="profile-photo-inner">
+            <div 
+              className="profile-photo-frame cursor-pointer"
+              onMouseEnter={() => setIsSleeping(true)}
+              onMouseLeave={() => setIsSleeping(false)}
+              onClick={() => setIsSleeping(!isSleeping)}
+              role="button"
+              tabIndex={0}
+              aria-label="Toggle sleeping profile image"
+            >
+              <div className="profile-photo-inner relative">
                 {!imageError ? (
-                  <img
-                    src={profilePhoto}
-                    alt={`${site.name} professional portrait`}
-                    className="profile-photo-img"
-                    onError={() => setImageError(true)}
-                    loading="lazy"
-                  />
+                  <>
+                    <motion.img
+                      src={profilePhoto}
+                      alt={`${site.name} awake`}
+                      className="profile-photo-img absolute inset-0 z-10"
+                      initial={{ opacity: 1 }}
+                      animate={{ opacity: isSleeping ? 0 : 1 }}
+                      transition={{ duration: 0.4 }}
+                      onError={() => setImageError(true)}
+                    />
+                    <motion.img
+                      src={profileSleeping}
+                      alt={`${site.name} sleeping`}
+                      className="profile-photo-img absolute inset-0 z-20"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: isSleeping ? 1 : 0 }}
+                      transition={{ duration: 0.4 }}
+                      onError={() => setImageError(true)}
+                    />
+                  </>
                 ) : (
                   <div className="grid h-full w-full place-items-center bg-gradient-to-br from-indigo-500/20 via-purple-500/10 to-cyan-500/20">
                     <div className="text-center">
@@ -38,13 +61,13 @@ export function About() {
               </div>
             </div>
 
-            <div className="absolute left-3 top-3 glass rounded-full px-3 py-1 text-xs text-text">
+            <div className="absolute left-3 top-3 glass rounded-full px-3 py-1 text-xs text-text z-30">
               📍 Tuguegarao, PH
             </div>
 
-            <div className="absolute bottom-3 right-3 glass rounded-full px-3 py-1 text-xs text-text">
+            <div className="absolute bottom-3 right-3 glass rounded-full px-3 py-1 text-xs text-text z-30">
               <span className="mr-2 inline-block h-2 w-2 rounded-full bg-emerald-400 animate-pulse" />
-              Open to Work
+              {isSleeping ? 'Dreaming' : 'Open to Work'}
             </div>
           </div>
 
