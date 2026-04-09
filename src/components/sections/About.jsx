@@ -73,9 +73,7 @@ export function About() {
           <div className="mt-6 flex gap-3 max-w-[380px] mx-auto">
             <Button
               as="a"
-              href="https://mail.google.com/mail/?view=cm&to=salva.harrold@gmail.com&su=Hello%20Marc%20–%20Let's%20Connect"
-              target="_blank"
-              rel="noreferrer"
+              href="mailto:salva.harrold@gmail.com?subject=Hello%20Marc%20%E2%80%93%20Let's%20Connect"
               variant="primary"
               className="flex-1 w-full text-center"
               id="about-send-email"
