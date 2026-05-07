@@ -9,7 +9,7 @@ export function SkillsRadar({ data }) {
           <RadarChart data={data}>
             <PolarGrid stroke="rgba(255,255,255,0.08)" />
             <PolarAngleAxis dataKey="label" tick={{ fill: 'rgba(226,232,240,0.75)', fontSize: 11 }} />
-            <PolarRadiusAxis domain={[0, 100]} tick={false} axisLine={false} />
+            <PolarRadiusAxis domain={[50, 100]} tick={false} axisLine={false} />
             <Tooltip
               contentStyle={{
                 background: 'rgba(10,10,15,0.9)',
