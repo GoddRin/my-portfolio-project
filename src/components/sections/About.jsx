@@ -82,8 +82,8 @@ export function About() {
             </Button>
             <Button
               as="a"
-              href="/Marc_Harrold_Salva_Resume.pdf"
-              download="Marc_Harrold_Salva_Resume.pdf"
+              href="/resume final v3.pdf"
+              download="resume final v3.pdf"
               variant="ghost"
               className="flex-1 w-full text-center"
               id="about-download-cv"
