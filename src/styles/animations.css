@@ -120,12 +120,6 @@
   height: 430px;
 }
 
-@property --angle {
-  syntax: '<angle>';
-  inherits: false;
-  initial-value: 0deg;
-}
-
 .hero-photo-frame {
   position: absolute;
   left: 50%;
@@ -137,10 +131,16 @@
   padding: 2px;
   overflow: hidden;
   transition: transform 240ms ease, box-shadow 240ms ease;
-  --angle: 0deg;
-  background: conic-gradient(from var(--angle), #6366f1, #22d3ee, #8b5cf6, #6366f1);
-  animation: spin-border-angle 4s linear infinite;
   z-index: 3;
+}
+
+.hero-photo-frame::before {
+  content: '';
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, #6366f1, #22d3ee, #8b5cf6, #6366f1);
+  animation: spin-border 4s linear infinite;
+  z-index: 0;
 }
 
 .hero-photo-inner {
@@ -197,6 +197,7 @@
   filter: blur(60px);
   pointer-events: none;
   z-index: 0;
+  will-change: transform;
 }
 
 .aura-indigo {
@@ -326,11 +327,7 @@
   }
 }
 
-@keyframes spin-border-angle {
-  to {
-    --angle: 360deg;
-  }
-}
+
 
 @keyframes glow-pulse {
   0%,

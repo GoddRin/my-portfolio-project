@@ -69,7 +69,6 @@ export function RevealWrapper({
       initial="hidden"
       animate={inView ? 'visible' : 'hidden'}
       variants={containerVariants}
-      style={{ willChange: 'transform, opacity' }}
       {...props}
     >
       {Children.map(children, (child) => {
@@ -77,13 +76,13 @@ export function RevealWrapper({
 
         if (!isValidElement(child)) {
           return (
-            <motion.div variants={itemVariants} style={{ willChange: 'transform, opacity' }}>
+            <motion.div variants={itemVariants}>
               {child}
             </motion.div>
           )
         }
         return (
-          <motion.div variants={itemVariants} style={{ willChange: 'transform, opacity' }}>
+          <motion.div variants={itemVariants}>
             {child}
           </motion.div>
         )
