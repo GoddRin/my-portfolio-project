@@ -1,6 +1,9 @@
 import assetManagementImage from '../assets/project-asset-management.png'
 import portfolioProfileImage from '../assets/project-portfolio-profile.png'
 import smartFarmImage from '../assets/project-smart-farm.png'
+import smartFarm1 from '../assets/smart-farm-1.jpg'
+import smartFarm2 from '../assets/smart-farm-2.jpg'
+import smartFarm3 from '../assets/smart-farm-3.jpg'
 
 export const projects = [
   {
@@ -48,9 +51,9 @@ export const projects = [
     liveUrl: 'https://smart-farm-assistant.vercel.app',
     githubUrl: 'https://github.com/GodRin7/Smart-farm-assistant.git',
     screenshots: [
-      smartFarmImage,
-      'https://picsum.photos/seed/smart-farm-system-2/1400/900',
-      'https://picsum.photos/seed/smart-farm-system-3/1400/900',
+      smartFarm1,
+      smartFarm2,
+      smartFarm3,
     ],
   },
   {
