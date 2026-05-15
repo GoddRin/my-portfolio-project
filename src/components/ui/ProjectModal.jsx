@@ -59,12 +59,12 @@ export function ProjectModal({ project, open, onClose }) {
 
             <div className="grid max-h-[80vh] gap-6 overflow-auto p-6 lg:grid-cols-12">
               <div className="lg:col-span-7">
-                <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-surface">
+                <div className="relative flex aspect-video items-center justify-center overflow-hidden rounded-2xl border border-white/10 bg-black/40">
                   <img
                     src={shots[idx] || project.image}
                     alt={`${project.name} screenshot`}
                     loading="lazy"
-                    className="h-full w-full object-cover"
+                    className="h-full w-full object-contain"
                   />
                 </div>
 
