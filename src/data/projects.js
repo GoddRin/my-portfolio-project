@@ -1,11 +1,14 @@
 import assetManagementImage from '../assets/project-asset-management.png'
 import portfolioProfileImage from '../assets/project-portfolio-profile.png'
 import smartFarmImage from '../assets/project-smart-farm.png'
+import smartFarm1 from '../assets/smart-farm-1.jpg'
+import smartFarm2 from '../assets/smart-farm-2.jpg'
+import smartFarm4 from '../assets/smart-farm-3.jpg'
 
 export const projects = [
   {
     id: 'asset-management',
-    featured: true,
+    featured: false,
     category: 'Full-Stack · MERN',
     name: 'Asset Management System',
     description:
@@ -30,7 +33,7 @@ export const projects = [
   },
   {
     id: 'smart-farm',
-    featured: false,
+    featured: true,
     category: 'IoT · Dashboard',
     name: 'Smart Farm Assistant',
     description:
@@ -44,13 +47,13 @@ export const projects = [
       'Charts and historical trends',
     ],
     stack: ['React', 'Node.js', 'MongoDB', 'WebSockets'],
-    image: smartFarmImage,
+    image: smartFarm1,
     liveUrl: 'https://smart-farm-assistant.vercel.app',
     githubUrl: 'https://github.com/GodRin7/Smart-farm-assistant.git',
     screenshots: [
-      smartFarmImage,
-      'https://picsum.photos/seed/smart-farm-system-2/1400/900',
-      'https://picsum.photos/seed/smart-farm-system-3/1400/900',
+      smartFarm1,
+      smartFarm2,
+      smartFarm4,
     ],
   },
   {
