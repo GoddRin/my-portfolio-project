@@ -194,6 +194,7 @@
 .hero-aura-circle {
   position: absolute;
   border-radius: 9999px;
+  filter: blur(60px);
   pointer-events: none;
   z-index: 0;
   will-change: transform;
@@ -204,7 +205,7 @@
   height: 400px;
   top: -84px;
   right: -70px;
-  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%);
+  background: rgba(99, 102, 241, 0.08);
   animation: aura-rotate-cw 14s linear infinite;
 }
 
@@ -213,7 +214,8 @@
   height: 300px;
   left: -78px;
   bottom: -76px;
-  background: radial-gradient(circle, rgba(34, 211, 238, 0.06) 0%, transparent 70%);
+  background: rgba(34, 211, 238, 0.06);
+  filter: blur(80px);
   animation: aura-rotate-ccw 16s linear infinite;
 }
 
@@ -229,7 +231,8 @@
   color: #e2e8f0;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-left: 2px solid var(--accent);
-  background: rgba(10, 10, 15, 0.85);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
@@ -469,7 +472,8 @@
   overflow: hidden;
   border-radius: 24px;
   padding: 32px 28px;
-  background: rgba(20, 20, 28, 0.95);
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px) saturate(180%);
   border: 1px solid rgba(255, 255, 255, 0.07);
   cursor: default;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
