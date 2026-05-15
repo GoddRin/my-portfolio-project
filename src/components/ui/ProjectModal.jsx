@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from 'framer-motion'
-import { ExternalLink, Code2, X } from 'lucide-react'
+import { ExternalLink, Code2, X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useMemo, useState } from 'react'
 import { Button } from './Button.jsx'
 
@@ -85,8 +85,27 @@ export function ProjectModal({ project, open, onClose }) {
                         data-cursor="active"
                       />
                     ))}
-                    <div className="ml-auto text-xs text-muted">
-                      <span className="font-mono">←/→</span> to navigate
+                    <div className="ml-auto flex gap-1">
+                      <button
+                        type="button"
+                        onClick={() => setIdx((i) => Math.max(0, i - 1))}
+                        disabled={idx === 0}
+                        className="grid h-7 w-7 place-items-center rounded bg-white/5 border border-white/10 text-muted hover:text-text hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition"
+                        aria-label="Previous screenshot"
+                        data-cursor="active"
+                      >
+                        <ChevronLeft className="h-4 w-4" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setIdx((i) => Math.min(shots.length - 1, i + 1))}
+                        disabled={idx === shots.length - 1}
+                        className="grid h-7 w-7 place-items-center rounded bg-white/5 border border-white/10 text-muted hover:text-text hover:bg-white/10 disabled:opacity-30 disabled:cursor-not-allowed transition"
+                        aria-label="Next screenshot"
+                        data-cursor="active"
+                      >
+                        <ChevronRight className="h-4 w-4" />
+                      </button>
                     </div>
                   </div>
                 ) : null}
