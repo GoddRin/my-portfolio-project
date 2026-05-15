@@ -102,9 +102,8 @@ html:not(.dark) body::before {
 
 /* Glass utilities */
 .glass {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.10);
-  backdrop-filter: blur(14px);
 }
 
 html:not(.dark) .glass {
@@ -172,16 +171,15 @@ html:not(.dark) .bg-black\/20 {
 .bg-orb {
   position: absolute;
   border-radius: 9999px;
-  filter: blur(120px);
   will-change: transform;
 }
 
-.orb-1 { top: 8%; left: 13%; width: 540px; height: 540px; background: #6366f1; opacity: 0.32; animation: orb-float-1 10s ease-in-out infinite alternate; }
-.orb-2 { top: 58%; right: 8%; width: 460px; height: 460px; background: #22d3ee; opacity: 0.28; animation: orb-float-2 14s ease-in-out infinite alternate; }
-.orb-3 { top: 28%; left: 53%; width: 390px; height: 390px; background: #8b5cf6; opacity: 0.24; animation: orb-float-3 12s ease-in-out infinite alternate; }
-.orb-4 { bottom: 4%; left: 28%; width: 500px; height: 500px; background: #6366f1; opacity: 0.22; animation: orb-float-4 16s ease-in-out infinite alternate; }
-.orb-5 { top: 4%; right: 23%; width: 360px; height: 360px; background: #22d3ee; opacity: 0.24; animation: orb-float-5 11s ease-in-out infinite alternate; }
-.orb-6 { bottom: 18%; right: 38%; width: 420px; height: 420px; background: #8b5cf6; opacity: 0.2; animation: orb-float-6 13s ease-in-out infinite alternate; }
+.orb-1 { top: 8%; left: 13%; width: 540px; height: 540px; background: radial-gradient(circle, #6366f1 0%, transparent 70%); opacity: 0.32; animation: orb-float-1 10s ease-in-out infinite alternate; }
+.orb-2 { top: 58%; right: 8%; width: 460px; height: 460px; background: radial-gradient(circle, #22d3ee 0%, transparent 70%); opacity: 0.28; animation: orb-float-2 14s ease-in-out infinite alternate; }
+.orb-3 { top: 28%; left: 53%; width: 390px; height: 390px; background: radial-gradient(circle, #8b5cf6 0%, transparent 70%); opacity: 0.24; animation: orb-float-3 12s ease-in-out infinite alternate; }
+.orb-4 { bottom: 4%; left: 28%; width: 500px; height: 500px; background: radial-gradient(circle, #6366f1 0%, transparent 70%); opacity: 0.22; animation: orb-float-4 16s ease-in-out infinite alternate; }
+.orb-5 { top: 4%; right: 23%; width: 360px; height: 360px; background: radial-gradient(circle, #22d3ee 0%, transparent 70%); opacity: 0.24; animation: orb-float-5 11s ease-in-out infinite alternate; }
+.orb-6 { bottom: 18%; right: 38%; width: 420px; height: 420px; background: radial-gradient(circle, #8b5cf6 0%, transparent 70%); opacity: 0.2; animation: orb-float-6 13s ease-in-out infinite alternate; }
 
 .bg-particles {
   z-index: 1;
@@ -326,7 +324,6 @@ html:not(.dark) .systems-section .systems-mono-label {
 
   /* ── Extreme orb optimization ────────────────── */
   .bg-orb {
-    filter: blur(40px) !important; /* Huge reduction */
     opacity: 0.3 !important;
   }
 
