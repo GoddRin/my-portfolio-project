@@ -1,65 +1,11 @@
 import { ExternalLink, Code2, ArrowRight } from 'lucide-react'
-import { useMemo, useState, useEffect } from 'react'
+import { useMemo, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { projects } from '../../data/projects.js'
 import { RevealWrapper } from '../ui/RevealWrapper.jsx'
 import { GlassCard } from '../ui/GlassCard.jsx'
 import { Button } from '../ui/Button.jsx'
 import { ProjectModal } from '../ui/ProjectModal.jsx'
-
-function HoverImageShowcase({ images, fallbackImage, className }) {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    let interval;
-    if (isHovered && images && images.length > 1) {
-      interval = setInterval(() => {
-        setCurrentIndex((prev) => (prev + 1) % images.length);
-      }, 1500);
-    } else {
-      setCurrentIndex(0);
-    }
-    return () => clearInterval(interval);
-  }, [isHovered, images]);
-
-  const displayImages = images?.length > 0 ? images : [fallbackImage];
-
-  return (
-    <div 
-      className={`relative overflow-hidden group ${className}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {displayImages.map((img, i) => (
-        <img
-          key={i}
-          src={img}
-          alt={`Project view ${i + 1}`}
-          loading="lazy"
-          className={`absolute inset-0 h-full w-full object-cover transition-all duration-700 ease-in-out ${
-            i === currentIndex 
-              ? 'opacity-100 scale-100 z-10' 
-              : 'opacity-0 scale-110 z-0'
-          } ${isHovered && i === currentIndex ? 'md:scale-[1.05]' : ''}`}
-        />
-      ))}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-20 pointer-events-none" />
-      
-      {/* Progress indicator dots for multiple images */}
-      {images && images.length > 1 && (
-        <div className="absolute bottom-4 left-0 right-0 z-30 flex justify-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
-          {images.map((_, i) => (
-            <div 
-              key={i} 
-              className={`h-1 rounded-full transition-all duration-300 ${i === currentIndex ? 'w-4 bg-white' : 'w-1.5 bg-white/40'}`} 
-            />
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
 
 function ProjectCard({ p, onOpen }) {
   return (
@@ -71,13 +17,15 @@ function ProjectCard({ p, onOpen }) {
         aria-label={`Open ${p.name} details`}
         data-cursor="active"
       >
-        <div className="relative">
-          <HoverImageShowcase 
-            images={p.screenshots} 
-            fallbackImage={p.image} 
-            className="h-48 w-full"
+        <div className="relative overflow-hidden">
+          <img
+            src={p.image}
+            alt={`${p.name} cover`}
+            loading="lazy"
+            className="h-48 w-full object-cover md:transition md:duration-500 md:group-hover:scale-[1.05]"
           />
-          <div className="absolute left-4 top-4 z-30 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-muted pointer-events-none">
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute left-4 top-4 rounded-full border border-white/10 bg-black/40 px-3 py-1 text-xs text-muted">
             {p.category}
           </div>
         </div>
@@ -148,13 +96,15 @@ export function Projects() {
               aria-label={`Open ${featured.name} details`}
               data-cursor="active"
             >
-              <div className="relative md:col-span-6 overflow-hidden">
-                <div className="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-indigo-400 to-cyan-400 z-30" />
-                <HoverImageShowcase 
-                  images={featured.screenshots} 
-                  fallbackImage={featured.image} 
-                  className="h-full min-h-64 w-full"
+              <div className="relative md:col-span-6">
+                <div className="absolute left-0 top-0 h-full w-[6px] bg-gradient-to-b from-indigo-400 to-cyan-400" />
+                <img
+                  src={featured.image}
+                  alt={`${featured.name} cover`}
+                  loading="lazy"
+                  className="h-full min-h-64 w-full object-cover md:transition md:duration-500 md:group-hover:scale-[1.04]"
                 />
+                <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-black/10 to-transparent" />
               </div>
               <div className="p-7 md:col-span-6">
                 <div className="inline-flex rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-muted">
@@ -175,16 +125,12 @@ export function Projects() {
                 </div>
 
                 <div className="mt-7 flex flex-wrap gap-3">
-                  <div onClick={(e) => e.stopPropagation()}>
-                    <Button as="a" href={featured.liveUrl} target="_blank" rel="noreferrer" variant="primary">
-                      View Live <ExternalLink className="h-4 w-4" />
-                    </Button>
-                  </div>
-                  <div onClick={(e) => e.stopPropagation()}>
-                    <Button as="a" href={featured.githubUrl} target="_blank" rel="noreferrer" variant="ghost">
-                      GitHub <Code2 className="h-4 w-4" />
-                    </Button>
-                  </div>
+                  <Button as="a" href={featured.liveUrl} target="_blank" rel="noreferrer" variant="primary">
+                    View Live <ExternalLink className="h-4 w-4" />
+                  </Button>
+                  <Button as="a" href={featured.githubUrl} target="_blank" rel="noreferrer" variant="ghost">
+                    GitHub <Code2 className="h-4 w-4" />
+                  </Button>
                 </div>
               </div>
             </button>
